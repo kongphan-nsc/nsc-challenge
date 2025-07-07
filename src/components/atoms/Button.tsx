@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const variantStyles = {
     primary:
-      "bg-primary text-on-primary hover:bg-opacity-80 focus:ring-primary",
+      "bg-background text-on-primary hover:bg-opacity-80 focus:ring-primary",
     secondary:
       "bg-surface text-on-surface hover:bg-opacity-80 focus:ring-gray-500 border border-primary",
   };
