@@ -8,7 +8,7 @@ type OptimizationCardProps = {
   features: string[];
 };
 
-const OptimizationCard: React.FC<OptimizationCardProps> = ({
+const OptimizationCardComponent: React.FC<OptimizationCardProps> = ({
   icon,
   title,
   subtitle,
@@ -40,4 +40,5 @@ const OptimizationCard: React.FC<OptimizationCardProps> = ({
   );
 };
 
+export const OptimizationCard = React.memo(OptimizationCardComponent);
 export default OptimizationCard;

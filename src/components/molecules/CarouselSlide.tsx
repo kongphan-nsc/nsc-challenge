@@ -10,7 +10,7 @@ type CarouselSlideProps = {
   image: SanityImage;
 };
 
-const CarouselSlide: React.FC<CarouselSlideProps> = ({
+const CarouselSlideComponent: React.FC<CarouselSlideProps> = ({
   title,
   description,
   image,
@@ -34,4 +34,5 @@ const CarouselSlide: React.FC<CarouselSlideProps> = ({
   );
 };
 
+export const CarouselSlide = React.memo(CarouselSlideComponent);
 export default CarouselSlide;

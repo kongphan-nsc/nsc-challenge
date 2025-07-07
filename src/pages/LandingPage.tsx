@@ -6,7 +6,7 @@ import ImageAndText from "@/components/molecules/ImageAndText";
 import Text from "@/components/atoms/Text";
 import Carousel from "@/components/organisms/Carousel";
 import CarouselSlide from "@/components/molecules/CarouselSlide";
-import { client } from "@/sanity/client";
+import { client, urlFor } from "@/sanity/client";
 import type { Image } from "@sanity/types";
 import LandingPageSkeleton from "@/components/organisms/LandingPageSkeleton";
 
@@ -47,6 +47,20 @@ const LandingPage: React.FC = () => {
     }`;
 
     client.fetch(query).then((data: LandingPageData) => {
+      console.log("Fetched Sanity Data:", data);
+
+      if (data?.carouselSlides?.[0]?.image) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = urlFor(data.carouselSlides[0].image)
+          .width(1200)
+          .format("webp")
+          .quality(85)
+          .url();
+        document.head.appendChild(link);
+      }
+
       setTimeout(() => setPageData(data), 1500); // Simulate network delay for testing
     });
   }, []);

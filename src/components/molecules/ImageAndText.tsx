@@ -14,7 +14,7 @@ type ImageAndTextProps = {
   onCtaClick?: () => void;
 };
 
-const ImageAndText: React.FC<ImageAndTextProps> = ({
+const ImageAndTextComponent: React.FC<ImageAndTextProps> = ({
   image,
   title,
   description,
@@ -71,4 +71,5 @@ const ImageAndText: React.FC<ImageAndTextProps> = ({
   );
 };
 
+export const ImageAndText = React.memo(ImageAndTextComponent);
 export default ImageAndText;

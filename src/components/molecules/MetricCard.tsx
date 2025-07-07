@@ -7,7 +7,11 @@ type MetricCardProps = {
   target: string;
 };
 
-const MetricCard: React.FC<MetricCardProps> = ({ label, value, target }) => {
+const MetricCardComponent: React.FC<MetricCardProps> = ({
+  label,
+  value,
+  target,
+}) => {
   return (
     <div className="bg-surface p-4 rounded-lg shadow-lg flex flex-col gap-2">
       <Text as="h3" className="text-lg text-on-surface/80">
@@ -25,4 +29,5 @@ const MetricCard: React.FC<MetricCardProps> = ({ label, value, target }) => {
   );
 };
 
+export const MetricCard = React.memo(MetricCardComponent);
 export default MetricCard;
