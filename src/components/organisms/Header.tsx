@@ -1,29 +1,29 @@
 import React from "react";
-import Button from "@/components/atoms/Button";
+import { Link } from "react-router-dom";
 
-const Header: React.FC = () => {
+const HeaderComponent: React.FC = () => {
   return (
-    <div className="bg-surface shadow-md bg-skeleton">
+    <div className="bg-surface shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-primary">Logo</div>
+          <Link to="/" className="text-2xl font-bold text-primary">
+            Logo
+          </Link>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-on-surface hover:text-primary">
+            <Link to="/" className="text-on-surface hover:text-primary">
               Home
-            </a>
-            <a href="#" className="text-on-surface hover:text-primary">
-              About
-            </a>
-            <a href="#" className="text-on-surface hover:text-primary">
-              Services
-            </a>
-            <a href="#" className="text-on-surface hover:text-primary">
-              Contact
-            </a>
+            </Link>
+            <Link
+              to="/performance"
+              className="text-on-surface hover:text-primary">
+              Performance
+            </Link>
+            <Link
+              to="/challenge"
+              className="text-on-surface hover:text-primary">
+              Challenge
+            </Link>
           </nav>
-          <div className="hidden md:block">
-            <Button>Get Started</Button>
-          </div>
           <div className="md:hidden">
             {/* Mobile menu button will go here */}
             <p className="text-on-surface">Menu</p>
@@ -34,4 +34,5 @@ const Header: React.FC = () => {
   );
 };
 
+export const Header = React.memo(HeaderComponent);
 export default Header;

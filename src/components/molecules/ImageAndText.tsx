@@ -2,10 +2,11 @@ import React from "react";
 import Image from "@/components/atoms/Image";
 import Text from "@/components/atoms/Text";
 import Button from "@/components/atoms/Button";
+import { urlFor } from "@/sanity/client";
+import type { Image as SanityImage } from "@sanity/types";
 
 type ImageAndTextProps = {
-  imageUrl: string;
-  imageAlt: string;
+  image: SanityImage;
   title: string;
   description: string;
   imagePosition?: "left" | "right";
@@ -14,8 +15,7 @@ type ImageAndTextProps = {
 };
 
 const ImageAndText: React.FC<ImageAndTextProps> = ({
-  imageUrl,
-  imageAlt,
+  image,
   title,
   description,
   imagePosition = "left",
@@ -24,9 +24,15 @@ const ImageAndText: React.FC<ImageAndTextProps> = ({
 }) => {
   const imageEl = (
     <Image
-      src={imageUrl}
-      alt={imageAlt}
+      src={urlFor(image)
+        .width(800)
+        .height(600)
+        .format("webp")
+        .quality(80)
+        .url()}
+      alt={title}
       className="rounded-lg shadow-lg object-cover w-full h-full"
+      loading="lazy"
     />
   );
   const textContent = (

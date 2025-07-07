@@ -6,7 +6,7 @@ import ImageAndText from "@/components/molecules/ImageAndText";
 import Text from "@/components/atoms/Text";
 import Carousel from "@/components/organisms/Carousel";
 import CarouselSlide from "@/components/molecules/CarouselSlide";
-import { client, urlFor } from "@/sanity/client";
+import { client } from "@/sanity/client";
 import type { Image } from "@sanity/types";
 import LandingPageSkeleton from "@/components/organisms/LandingPageSkeleton";
 
@@ -69,7 +69,7 @@ const LandingPage: React.FC = () => {
                 key={slide.title}
                 title={slide.title}
                 description={slide.description}
-                imageUrl={urlFor(slide.image).url()}
+                image={slide.image}
               />
             ))}
           />
@@ -81,8 +81,7 @@ const LandingPage: React.FC = () => {
               key={index}
               title={block.title}
               description={block.description}
-              imageUrl={urlFor(block.image).url()}
-              imageAlt={block.title}
+              image={block.image}
               imagePosition={block.imagePosition}
               ctaText={block.ctaText}
               onCtaClick={() => alert(`${block.ctaText} clicked!`)}

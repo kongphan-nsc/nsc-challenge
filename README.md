@@ -78,6 +78,29 @@ src
 └── sanity          # Sanity client configuration
 ```
 
+## 🚀 Performance Optimizations
+
+This project includes a suite of performance optimizations to ensure a fast and smooth user experience, targeting a Lighthouse score of 90+.
+
+-   **Image Optimization**:
+    -   Leverages Sanity.io's image pipeline to serve perfectly sized images.
+    -   Delivers next-gen formats like WebP for smaller file sizes.
+    -   Implements native lazy loading for offscreen images to speed up initial load.
+
+-   **Code Splitting**:
+    -   Uses `React.lazy` and `Suspense` to split code by route.
+    -   Reduces the initial JavaScript bundle size, improving Time to Interactive.
+
+-   **Component Memoization**:
+    -   Utilizes `React.memo` on key components to prevent unnecessary re-renders.
+    -   Improves runtime performance and UI responsiveness.
+
+-   **Production-Ready Asset Delivery**:
+    -   The application is configured to be deployed on Vercel, which automatically handles:
+        -   Text compression (Gzip/Brotli).
+        -   Global CDN for low-latency asset delivery.
+        -   Optimized HTTP protocols and caching.
+
 ## ✅ Next Steps
 
 The final step of the challenge is to deploy the entire project to **Vercel**. Vercel can be configured to deploy both the frontend application and the Sanity Studio from the same repository.
